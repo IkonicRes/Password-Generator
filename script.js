@@ -15,6 +15,21 @@ passwordGenerator = {
     hasSymbol: false,
     validPass: false,
     attempt: 0,
+
+    setPassParams: function(option, question) {
+        this[option] = confirm("Would you like to include " + question + " in your password?")
+        if (this[option] === true) {
+            console.log("Ok then, " + question + " will be included!")
+        }
+        else {
+            console.log("Ok then, " + question + " will be ommitted!")
+        }
+    },
+
+    isAlpha: function(ch){
+        return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');
+    },
+
     startGeneration: function() {
         var bLengthValid = false
         this.availChars = []
@@ -37,42 +52,18 @@ passwordGenerator = {
             }
         }
         
-        this.bLower = confirm("Would you like lowercase letters in your password?")
-        if (this.bLower === true){
-            console.log("Ok! Lowercase letters included!")
-        }
-        else{
-            console.log("Ok! Lowercase letters ommitted!")
-        }
-        
-        this.bUpper = confirm("Would you like uppercase letters in your password?")
-        if (this.bUpper === true){
-            console.log("Ok! Uppercase letters included!")
-        }
-        else{
-            console.log("Ok! Uppercase letters ommitted!")
-        }
-        
-        this.bNum = confirm("Would you like numbers in your password?")
-        if (this.bNum === true){
-            console.log("Ok! Numbers will be included!")
-        }
-        else{
-            console.log("Ok! Numbers will be ommitted!")
-        }
-        
-        this.bSymbol = confirm("Would you like to include symbols in your password?")
-        if (this.bSymbol === true){
-            console.log("Ok! Symbols will be included!")
-        }
-        else {
-            console.log("Ok! Symbols will be ommitted!")
-        }
+        this.setPassParams("bLower", "lowercase letters")
+        this.setPassParams("bUpper", "uppercase letters")
+        this.setPassParams("bNum", "numbers")
+        this.setPassParams("bSymbol", "symbols")
         
         if (!this.bUpper && !this.bLower){
             if (this.bNum){
                 if (this.bSymbol){
                     this.availChars = this.availNumbers.concat(this.availSymbols)
+                }
+                else{
+                    this.availChars = this.availNumbers
                 }
             }
             else {
@@ -85,7 +76,6 @@ passwordGenerator = {
                 }
             }
         }
-        
         else {
             if (this.bNum){
                 this.availChars = this.availLetters.concat(this.availNumbers)
@@ -96,11 +86,16 @@ passwordGenerator = {
                 this.availChars = this.availLetters.concat(this.availSymbols)
                 }
             }
+            else {
+                halfString = Math.floor(this.availLetters.length / 2)
+                this.availChars = this.availLetters.slice(0, halfString)
+            }
         }
         
         while(!this.validPass){
             this.attempt++
             console.log(this.attempt)
+            console.log("Previous result: " + this.passResult)
             this.passResult = ""
             for (index = 0; index < length; index++){
                 this.passResult += this.availChars[Math.floor((Math.random()*this.availChars.length))]
@@ -109,7 +104,6 @@ passwordGenerator = {
             if (!this.bUpper){
                 this.passResult = this.passResult.toLowerCase()
             }
-            
             else if(!this.bLower){
                 this.passResult = this.passResult.toUpperCase()
             }
@@ -129,11 +123,11 @@ passwordGenerator = {
                     this.hasSymbol = true
                     console.log("Symbol checked")
                 }
-                if (isAlpha(this.passResult[index]) && (this.passResult[index] === this.passResult[index].toLowerCase())){
+                if (this.isAlpha(this.passResult[index]) && (this.passResult[index] === this.passResult[index].toLowerCase())){
                     this.hasLower = true
                     console.log("Lower checked")
                 }
-                if (isAlpha(this.passResult[index]) && (this.passResult[index] === this.passResult[index].toUpperCase())){
+                if (this.isAlpha(this.passResult[index]) && (this.passResult[index] === this.passResult[index].toUpperCase())){
                     this.hasUpper = true
                     console.log("Upper checked")
                 }
@@ -144,11 +138,9 @@ passwordGenerator = {
                 break
             }
         }
-        console.log(this.passResult)
-           
+        console.log(this.passResult)           
+        document.getElementById("password").value=this.passResult
     }
 }
 
-var isAlpha = function(ch){
-    return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');
-}
+
