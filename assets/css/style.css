@@ -21,7 +21,6 @@ main {
   padding-left: 20px;
   padding-right: 20px;
 }
-
 /* Set the text color of the header to white to stand out against the darker part of the gradient */
 h1 {
   color: white;
@@ -39,47 +38,40 @@ article {
   padding: 30px 40px;
   background: linear-gradient(to bottom, cyan, black);
 }
-
+/* Add a gradient border under the textbox, make it block, and give it a modest height to make it a line. */
 #card-header::after {
   content: " ";
   display: block;
-  /* width: 100%; */
   background: linear-gradient(to right, cyan 60%, black);
   height: 2px;
 }
-
+/* Align the secondary header to the center of the page. */
 h2 {
   text-align: center;
 }
-
+/* Give the card body a min height of 100px */
 #card-body {
   min-height: 100px;
-  
 }
-
+/* Give the text area a downward gradient opposite to background  */
 #card-body textarea {
   background: linear-gradient(to bottom, black, cyan);
   color: white;
 }
-
+/* Center the "generation" button container */
 #card-footer {
   text-align: center;
 }
-
+/* Add some space between the textbox and bottom border, and make the border 2 pixels tall with a linear gradient opposite of the top*/
 #card-footer::before {
   content: " ";
   display: block;
-  width: 100%;
   background: linear-gradient(to left, cyan , black 80%);
   height: 2px;
 }
-
-#card-footer::after {
-  content: " ";
-  display: block;
-  clear: both;
-}
-
+/* Remove the button border, add a background color and a rounded border edge, and add an inset shadow 
+set the text color to white, and set the font size and line height a bit taller so it fills the button better.
+Add some margin and padding and set the cursor to pointer. */
 .btn {
   border: none;
   background-color:#00e1ff;
@@ -90,35 +82,27 @@ h2 {
                   1 -1 1vw #000,
                   -1 1 1vw #000,
                   1 1 1vw #000;
-
   color: hsl(0, 0%, 100%);
-  display: inline-block;
   font-size: 22px;
   line-height: 22px;
   margin: 16px 16px 16px 20px;
   padding: 14px 34px;
-  text-align: center;
   cursor: pointer;
 }
-
+/* Never used, but if button is disabled, this style will be set. Pre-existing code, not removing.  */
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
 }
-
-.float-right {
-  float: right;
-}
-
+/* Set the default appearance to none for all potential web browser kits, set the width to the full size of the container, and add a bit of top and bottom padding. 
+Set the font size relative to the parent element, align the text to the center, and add a bit of margin on top and bottom to inset default textbox text. Add a 
+small rounded border to the box, disable user resizing, hide the text overflow, and set the box sizing to border-box to contain it within its parent element. */
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  display: block;
   width: 100%;
   padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
   padding-bottom: 85px;
   font-size: 1.2rem;
   text-align: center;
@@ -128,22 +112,24 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Removing this will throw off the alignment for the textbox. This was an annoying problem I don't want to have to find the solution for again. */
 }
-
+/* Set the rules for when the screen's max width hits 690px... */
 @media (max-width: 690px) {
+  /* Set the button font size to the same amount as the parent element's font-size, and add a bit of margin and padding to keep the button nicely spaced when resized */
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
   }
-
+  /* And set the textbox font-size as well. */
   #password {
     font-size: 1rem;
   }
 }
-
+/* ...and when it hits max-width of 500px, for extra small devices */
 @media (max-width: 500px) {
+  /* Set the button to a bit smaller than the 690px size, 80 percent of the parent element's font-size */
   .btn {
     font-size: 0.8rem;
   }
