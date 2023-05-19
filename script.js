@@ -42,11 +42,12 @@ passwordGenerator = {
         this.bNum = false
         this.validPass = false
         this.attempt = 0
-        // Run a loop while the chosen password lengthis invalid, meaning not between 8 and 128. If an invalid length is entered, an alert comes up prompting the user to try again, this time between range.
+        a = 0
+        // Run a loop while the chosen password length is invalid, meaning not between 8 and 128. If an invalid length is entered, an alert comes up prompting the user to try again, this time between range.
         while (bLengthValid === false){
-            length = prompt("Please enter a desired password length between 8 and 128")
-            if ((length < 129) && length > 7){
-                console.log("Valid entry: " + length)
+            this.length = prompt("Please enter a desired password length between 8 and 128")
+            if ((this.length < 129) && (this.length > 7) && (!isNaN(this.length))){
+                alert("Great! Your generated password will be " + this.length + " characters long")
                 bLengthValid = true
             }
             else{
@@ -135,7 +136,7 @@ passwordGenerator = {
                 // First we check if the current index value is a number by seeing if our "availNumbers" array contains it. If so we mark the check as passed. 
                 if (this.availNumbers.includes(this.passResult[index])){
                     this.hasNumber = true
-                }
+                }   
                 // Then we do the same with the index value against our symbol array, once again marking the check if passed. 
                 if (this.availSymbols.includes(this.passResult[index])){
                     this.hasSymbol = true
