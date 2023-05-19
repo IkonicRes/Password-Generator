@@ -3,7 +3,7 @@
 
 I wanted to make an easy-to-use password generator that is neatly styled. I also wanted the user to be able to easily choose whether
 they would like uppercase letters, lowercase letters, numbers, or symbols in their generated password. Upon visiting the site, one 
-can quickly generate a password for use on any account. They are prompted to choose the parameters of their password, and each decision
+can quickly generate a password for use on any account. You are then prompted to choose the parameters of their password, and each decision
 is repeated back to the user so they can verify their choices. Instead of coming up with a different unique password on the fly every time
 you have to create a pesky new account, you can simply let the program do the work for you! Working on this project really helped me solidify
 how to use objects in javascript, and how to call the script from html.

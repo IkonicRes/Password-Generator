@@ -33,7 +33,6 @@ passwordGenerator = {
     },
     // Initialize the main function to be called when "Generate" is clicked
     startGeneration: function() {
-        console.log("beginning of startGeneration function");
         // Set all working variables to their default state in case of multiple generations.
         var bLengthValid = false
         this.availChars = []
@@ -112,8 +111,9 @@ passwordGenerator = {
         // Here comes the fun. After handling all of that we are ready for our main generation loop. We make a while loop that runs until we can confirm that the generated password is valid and satisfies all conditions.
         while(!this.validPass){
             // We increment and print the attempt in a debug to see how long it takes to find a suitable result
-            this.attempt++
-            console.log(this.attempt)
+            // Uncomment the next two lines to activate the counter debug 
+            // this.attempt++
+            // console.log(this.attempt)
             // We make sure our result is clear at the beginning of every loop so it doesnt concatenate the previous string to our new one
             this.passResult = ""
             // We then run our generation loop, incrementing until we hit the desired password length
@@ -150,7 +150,6 @@ passwordGenerator = {
                 // And we do the same for the uppercase, checking if current indexes value is a letter and also equal to the Uppercase version of itself, and if so we mark our last check
                 if (this.isAlpha(this.passResult[index]) && (this.passResult[index] === this.passResult[index].toUpperCase())){
                     this.hasUpper = true
-                    console.log("Upper checked")
                 }
             }
             // Finally, if the generated password's parameters match the user's choices and satisfies all criteria, set the while loops condition "validPass" to true, breaking the loop.. 
@@ -161,6 +160,5 @@ passwordGenerator = {
         }
         // .. And sets the "password" element's text to the result.        
         document.getElementById("password").value=this.passResult
-        console.log("end of startGeneration function");
     }
 }
