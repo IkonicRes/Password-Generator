@@ -1,8 +1,6 @@
 # Password Generator
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
 I wanted to make an easy-to-use password generator that is neatly styled. I also wanted the user to be able to easily choose whether
 they would like uppercase letters, lowercase letters, numbers, or symbols in their generated password. Upon visiting the site, one 
 can quickly generate a password for use on any account. They are prompted to choose the parameters of their password, and each decision
