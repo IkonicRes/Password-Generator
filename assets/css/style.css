@@ -15,15 +15,15 @@ header {
   padding: 20px;
   padding-top: 0px;
 }
+/* Set the text color of the header to white to stand out against the darker part of the gradient */
+h1 {
+  color: white;
+}
 /* Set the main section's padding so the content rests inset a bit in the center */
 main {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
-}
-/* Set the text color of the header to white to stand out against the darker part of the gradient */
-h1 {
-  color: white;
 }
 /* Set the border radius to a rounded corner, width to a pixel, and add a box-shadow to the right and bottom. Set the color of the text to a nice grey, the font size, and the margin to 0 auto.
 Give it a max-width of 800 pixels so it says proportionately inset, some nice padding, and a linear gradient background going the opposite way */
@@ -57,6 +57,26 @@ h2 {
 #card-body textarea {
   background: linear-gradient(to bottom, black, cyan);
   color: white;
+}
+/* Set the default appearance to none for all potential web browser kits, set the width to the full size of the container, and add a bit of top and bottom padding. 
+Set the font size relative to the parent element, align the text to the center, and add a bit of margin on top and bottom to inset default textbox text. Add a 
+small rounded border to the box, disable user resizing, hide the text overflow, and set the box sizing to border-box to contain it within its parent element. */
+#password {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 85px;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  resize: none;
+  overflow: hidden;
+  box-sizing: border-box; /* Removing this will throw off the alignment for the textbox. This was an annoying problem I don't want to have to find the solution for again. */
 }
 /* Center the "generation" button container */
 #card-footer {
@@ -94,37 +114,17 @@ button[disabled] {
   cursor: default;
   background: #c0c7cf;
 }
-/* Set the default appearance to none for all potential web browser kits, set the width to the full size of the container, and add a bit of top and bottom padding. 
-Set the font size relative to the parent element, align the text to the center, and add a bit of margin on top and bottom to inset default textbox text. Add a 
-small rounded border to the box, disable user resizing, hide the text overflow, and set the box sizing to border-box to contain it within its parent element. */
-#password {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 100%;
-  padding-top: 15px;
-  padding-bottom: 85px;
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px solid transparent;
-  border-radius: 6px;
-  resize: none;
-  overflow: hidden;
-  box-sizing: border-box; /* Removing this will throw off the alignment for the textbox. This was an annoying problem I don't want to have to find the solution for again. */
-}
 /* Set the rules for when the screen's max width hits 690px... */
 @media (max-width: 690px) {
+  /* And set the textbox font-size as well. */
+  #password {
+    font-size: 1rem;
+  }
   /* Set the button font size to the same amount as the parent element's font-size, and add a bit of margin and padding to keep the button nicely spaced when resized */
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
-  }
-  /* And set the textbox font-size as well. */
-  #password {
-    font-size: 1rem;
   }
 }
 /* ...and when it hits max-width of 500px, for extra small devices */
