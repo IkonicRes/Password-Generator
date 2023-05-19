@@ -2,12 +2,15 @@
 html {
     height: 100%;
   }
-/* Give the body a font-family of sans-serif, set a nice linear gradient for the background, and set padding and margin to 0 */
+/* Give the body a font-family of sans-serif, set a nice linear gradient for the background, and set padding and margin to 0. Set
+background to no-repeat and make it fixed so the gradient follows the page and doesnt tile*/
 body {
   font-family: sans-serif;
   background: linear-gradient(to bottom, black, cyan);
   margin: 0;
   padding: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 /* Align the header to the center of the page, and give it some padding to rest nicely. */
 header {
@@ -67,7 +70,7 @@ small rounded border to the box, disable user resizing, hide the text overflow, 
   appearance: none;
   width: 100%;
   padding-top: 5vh;
-  padding-bottom: 25vw;
+  padding-bottom: 25%;
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
@@ -132,5 +135,8 @@ button[disabled] {
   /* Set the button font size to a bit bigger than the 690px size, 1.25 times the parent element's font-size */
   .btn {
     font-size: 1.25rem;
+  }
+  #card-body {
+    min-height: 30%;
   }
 }
