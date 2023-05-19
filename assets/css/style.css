@@ -116,21 +116,21 @@ button[disabled] {
 }
 /* Set the rules for when the screen's max width hits 690px... */
 @media (max-width: 690px) {
-  /* And set the textbox font-size as well. */
+  /* And set the textbox font-size as well to a relative amount of the parent's font-size. */
   #password {
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
-  /* Set the button font size to the same amount as the parent element's font-size, and add a bit of margin and padding to keep the button nicely spaced when resized */
+  /* Set the button font size to 1.2 times the parent element's font-size, and add a bit of margin and padding to keep the button nicely spaced when resized */
   .btn {
-    font-size: 1rem;
+    font-size: 1.25rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
   }
 }
 /* ...and when it hits max-width of 500px, for extra small devices */
 @media (max-width: 500px) {
-  /* Set the button to a bit smaller than the 690px size, 80 percent of the parent element's font-size */
+  /* Set the button font size to a bit bigger than the 690px size, 1.25 times the parent element's font-size */
   .btn {
-    font-size: 0.8rem;
+    font-size: 1.25rem;
   }
 }
