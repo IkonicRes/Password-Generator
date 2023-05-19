@@ -3,7 +3,6 @@ passwordGenerator = {
     availLetters: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
     availNumbers: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
     availSymbols: ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", "|", ":", ";", "'", "<", ",", ">", ".", "?", "/", '\\'],
-    targetPassLength: 8,
     availChars: [],
     passResult: "",
     bLower: false,
@@ -94,9 +93,9 @@ passwordGenerator = {
                 if (this.bSymbol){
                     this.availChars = this.availChars.concat(this.availSymbols)
                 }
+            }    
             else if (this.bSymbol){
                 this.availChars = this.availLetters.concat(this.availSymbols)
-                }
             }
             /* Else, if only letters are supposed to be included, we check to see if we have both upper and lowercase letters. If we dont, since we included both uppercase and lowercase in our availLetters,
             we split availLetters in half and get only the first half, one set of lowercase letters. If we have both, we just set availChars to all of our letters, upper and lower*/
