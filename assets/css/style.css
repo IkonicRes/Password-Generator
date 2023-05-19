@@ -114,9 +114,8 @@ button[disabled] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   display: block;
-  width: 39.8em;
+  width: 100%;
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
@@ -126,10 +125,10 @@ button[disabled] {
   margin-top: 10px;
   margin-bottom: 10px;
   border: 2px solid transparent;
-  border-style: linear-gradient(to right, cyan, black);
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 @media (max-width: 690px) {
