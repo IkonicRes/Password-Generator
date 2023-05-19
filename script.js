@@ -16,6 +16,8 @@ passwordGenerator = {
     hasSymbol: false,
     validPass: false,
     attempt: 0,
+    length: 0,
+
     // Initialize a function that sets the chosen password options and displays prompt.
     setPassParams: function(option, question) {
         this[option] = confirm("Would you like to include " + question + " in your password?")
@@ -32,6 +34,7 @@ passwordGenerator = {
     },
     // Initialize the main function to be called when "Generate" is clicked
     startGeneration: function() {
+        console.log("beginning of startGeneration function");
         // Set all working variables to their default state in case of multiple generations.
         var bLengthValid = false
         this.availChars = []
@@ -42,7 +45,7 @@ passwordGenerator = {
         this.bNum = false
         this.validPass = false
         this.attempt = 0
-        a = 0
+        this.length = 0
         // Run a loop while the chosen password length is invalid, meaning not between 8 and 128. If an invalid length is entered, an alert comes up prompting the user to try again, this time between range.
         while (bLengthValid === false){
             this.length = prompt("Please enter a desired password length between 8 and 128")
@@ -51,7 +54,7 @@ passwordGenerator = {
                 bLengthValid = true
             }
             else{
-                alert("Invalid Length: " + length + ". Please enter a length between 8 and 128 characters.")
+                alert("Invalid Length: " + this.length + ". Please enter a length between 8 and 128 characters.")
             }
         }
         // If length is valid, the while loop breaks and runs the set function for each parameter sequentially, passing in the variable name and context for the text prompts/alerts.
@@ -115,7 +118,7 @@ passwordGenerator = {
             // We make sure our result is clear at the beginning of every loop so it doesnt concatenate the previous string to our new one
             this.passResult = ""
             // We then run our generation loop, incrementing until we hit the desired password length
-            for (index = 0; index < length; index++){
+            for (index = 0; index < this.length; index++){
                 // And each loop, we add a random character from our "availChars" array to our result, named passResult 
                 this.passResult += this.availChars[Math.floor((Math.random()*this.availChars.length))]
             }
@@ -159,5 +162,6 @@ passwordGenerator = {
         }
         // .. And sets the "password" element's text to the result.        
         document.getElementById("password").value=this.passResult
+        console.log("end of startGeneration function");
     }
 }
