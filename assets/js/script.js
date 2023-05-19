@@ -44,7 +44,7 @@ passwordGenerator = {
         this.validPass = false
         this.attempt = 0
         this.length = 0
-        // Run a loop while the chosen password length is invalid, meaning not between 8 and 128. If an invalid length is entered, an alert comes up prompting the user to try again, this time between range.
+        // Run a loop while the chosen password length is invalid, meaning not between 8 and 128, and ensure its a number. If an invalid length is entered, an alert comes up prompting the user to try again, this time between range.
         while (bLengthValid === false){
             this.length = prompt("Please enter a desired password length between 8 and 128")
             if ((this.length < 129) && (this.length > 7) && (!isNaN(this.length))){
