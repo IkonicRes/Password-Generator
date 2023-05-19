@@ -49,9 +49,9 @@ article {
 h2 {
   text-align: center;
 }
-/* Give the card body a min height of 100px */
+/* Give the card body a min height of 40 percent of the viewport height */
 #card-body {
-  min-height: 100px;
+  min-height: 30%;
 }
 /* Give the text area a downward gradient opposite to background  */
 #card-body textarea {
@@ -66,8 +66,8 @@ small rounded border to the box, disable user resizing, hide the text overflow, 
   -moz-appearance: none;
   appearance: none;
   width: 100%;
-  padding-top: 15px;
-  padding-bottom: 85px;
+  padding-top: 5vh;
+  padding-bottom: 25vw;
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
@@ -92,7 +92,7 @@ small rounded border to the box, disable user resizing, hide the text overflow, 
 /* Remove the button border, add a background color and a rounded border edge, and add an inset shadow 
 set the text color to white, and set the font size and line height a bit taller so it fills the button better.
 Add some margin and padding and set the cursor to pointer. */
-.btn {
+#btn {
   border: none;
   background-color:#00e1ff;
   border-radius: 25px;
