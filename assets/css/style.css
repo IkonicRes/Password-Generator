@@ -49,7 +49,7 @@ article {
 h2 {
   text-align: center;
 }
-/* Give the card body a min height of 40 percent of the viewport height */
+/* Give the card body a min height of 30 percent of the viewport */
 #card-body {
   min-height: 30%;
 }
